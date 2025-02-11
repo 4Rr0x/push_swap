@@ -6,13 +6,15 @@
 #    By: jopedro- <jopedro-@student.42porto.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/20 15:38:50 by jopedro-          #+#    #+#              #
-#    Updated: 2025/01/20 15:39:02 by jopedro-         ###   ########.fr        #
+#    Updated: 2025/01/30 17:43:07 by jopedro-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 #==============================================================================#
 #                                     NAMES                                    #
 #==============================================================================#
+
+NAME = push_swap
 
 ### Message Vars
 _SUCCESS 		= [$(GRN)SUCCESS$(D)]
@@ -27,13 +29,15 @@ _SEP 			= =====================
 #                                    PATHS                                     #
 #==============================================================================#
 
+SRC_PATH 		= src
 LIBS_PATH		= lib
 BUILD_PATH		= .build
 TEMP_PATH		= .temp
 
-SRC				= 
+SRC				= $(addprefix $(SRC_PATH)/, main.c input_verify.c sort.c operations.c \
+				  stack.c error.c operations_2.c sort_2.c) 
 
-OBJS			= $(SRC:.c=$(BUILD_PATH)/%.o)
+OBJS			= $(SRC:$(SRC_PATH)/%.c=$(BUILD_PATH)/%.o)
 
 LIBFT_PATH		= $(LIBS_PATH)/libft
 LIBFT_ARC		= $(LIBFT_PATH)/libft.a
@@ -132,16 +136,12 @@ norm: $(TEMP_PATH)		## Run norminette test on push_swap files
 		printf "[$(YEL)Everything is OK$(D)]\n"; \
 	fi
 	@echo "$(CYA)$(_SEP)$(D)"
-	@make --no-print-directory norm_bonus
 
-check_ext_func: bonus		## Check for external functions
+check_ext_func:## Check for external functions
 	@echo "[$(YEL)Checking for external functions$(D)]"
 	@echo "$(YEL)$(_SEP)$(D)"
 	@echo "$(CYA)Reading binary$(D): $(MAG)push_swap$(D)"
 	nm ./push_swap | grep "U" | tee $(TEMP_PATH)/ext_func.txt
-	@echo "$(YEL)$(_SEP)$(D)"
-	@echo "$(CYA)Reading binary$(D): $(MAG)checker$(D)"
-	nm ./checker | grep "U" | tee $(TEMP_PATH)/ext_func.txt
 	@echo "$(YEL)$(_SEP)$(D)"
 
 gdb:				## Run with GDB w/ custom arg=""
@@ -193,8 +193,8 @@ help: 			## Display this help page
 ## Tweaked from source:
 ### https://www.padok.fr/en/blog/beautiful-makefile-awk
 
-.PHONY: bonus deps get_libft update_modules clean fclean libclean re \
-		norm valgrind
+.PHONY: deps get_libft update_modules clean fclean libclean re \
+		norm
 	
 
 #==============================================================================#
