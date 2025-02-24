@@ -81,3 +81,15 @@ void	sort_100(t_elem **stack_a, t_elem **stack_b, int size)
 	opt_sort(stack_a, stack_b, size, 6);
 	move_back_to_a(stack_a, stack_b);
 }
+
+void	sort_four(t_elem **stack_a, t_elem **stack_b)
+{
+	int	smallest;
+
+    smallest = find_smallest(*stack_a);
+        while ((*stack_a)->num != smallest)
+            ra(stack_a, 1);
+        pb(stack_a, stack_b);
+        sort_three(stack_a);
+        pa(stack_a, stack_b);
+}

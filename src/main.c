@@ -26,7 +26,7 @@ int	main(int ac, char **av)
 		ext_error(NULL, NULL);
 	stack_a = crt_stack(av);
 	if (is_ordered(stack_a))
-		return (1);
+		return (0);
 	stack_b = NULL;
 	sort(&stack_a, &stack_b);
 	free_stack(stack_a);

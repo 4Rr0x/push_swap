@@ -53,5 +53,7 @@ int		get_position(t_elem *stack, t_elem *target);
 void	opt_sort(t_elem **stack_a, t_elem **stack_b, int size, int chunks);
 void	sort_100(t_elem **stack_a, t_elem **stack_b, int size);
 void	move_back_to_a(t_elem **stack_a, t_elem **stack_b);
+void	sort_three(t_elem **stack_a);
+void	sort_four(t_elem **stack_a, t_elem **stack_b);
 
 #endif
