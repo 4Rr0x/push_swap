@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: jopedro- <jopedro-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/22 09:52:37 by jopedro-          #+#    #+#             */
-/*   Updated: 2025/01/30 17:43:49 by jopedro-         ###   ########.fr       */
+/*   Created: 2025/02/24 16:36:06 by jopedro-          #+#    #+#             */
+/*   Updated: 2025/03/11 14:59:41 by jopedro-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,33 +36,37 @@ void	assign_indices(t_elem *stack)
 
 int	is_ordered(t_elem *stack)
 {
-	int	max;
-
-	max = 0;
-	while (stack->next)
+	while (stack && stack->next)
 	{
-		if (stack->num > max)
-			max = stack->num;
-		else
+		if (stack->num > stack->next->num)
 			return (0);
+		stack = stack->next;
 	}
 	return (1);
 }
 
 int	check_digit(char **av)
 {
+	int	tmp;
+	int	sign;
 	int	i;
 	int	j;
 
-	i = 0;
 	j = 0;
 	while (av[j])
 	{
 		i = 0;
+		tmp = 0;
+		sign = 1;
 		if (ft_issign(av[j][i]) && av[j][i + 1] != '\0')
-			i++;
+			if (av[j][i++] == '-')
+				sign = -1;
 		while (av[j][i] && ft_isdigit(av[j][i]))
-			i++;
+		{
+			if (ft_in_int_range(sign, tmp, av[j][i]) == 0)
+				return (0);
+			tmp = tmp * 10 + av[j][i++] - '0';
+		}
 		if (av[j][i] != '\0' && !ft_isdigit(av[j][i]))
 			return (0);
 		j++;

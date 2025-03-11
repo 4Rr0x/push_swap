@@ -1,37 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   error.c                                            :+:      :+:    :+:   */
+/*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jopedro- <jopedro-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/29 11:40:32 by jopedro-          #+#    #+#             */
-/*   Updated: 2025/01/31 17:25:53 by jopedro-         ###   ########.fr       */
+/*   Created: 2025/03/11 14:58:05 by jopedro-          #+#    #+#             */
+/*   Updated: 2025/03/11 15:25:23 by jopedro-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-t_elem	*find_max(t_elem *stack)
+int	ft_in_int_range(int sign, int nbr, char c)
 {
-	t_elem	*max_node;
-
-	max_node = stack;
-	while (stack)
-	{
-		if (stack->num > max_node->num)
-			max_node = stack;
-		stack = stack->next;
-	}
-	return (max_node);
+	if (nbr * sign > INT_MAX / 10 || nbr * sign < INT_MIN / 10)
+		return (0);
+	if ((nbr * sign == INT_MAX / 10 && c - '0' > INT_MAX % 10) || (nbr
+			* sign == INT_MIN / 10 && c - '0' > -(INT_MIN % 10)))
+		return (0);
+	return (1);
 }
 
-void	ext_error(t_elem *stack_a, t_elem *stack_b)
+void	free_split(char **strs)
 {
-	if (stack_a)
-		free_stack(stack_a);
-	if (stack_b)
-		free_stack(stack_b);
-	ft_putendl_fd("Error", 2);
-	exit(1);
+	size_t	i;
+
+	if (strs == NULL || *strs == NULL)
+		return ;
+	i = 0;
+	while (strs[i] != NULL)
+		free(strs[i++]);
+	free(strs);
 }

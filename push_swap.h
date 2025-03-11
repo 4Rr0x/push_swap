@@ -6,7 +6,7 @@
 /*   By: jopedro- <jopedro-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 16:03:15 by jopedro-          #+#    #+#             */
-/*   Updated: 2025/01/30 18:06:05 by jopedro-         ###   ########.fr       */
+/*   Updated: 2025/03/11 15:23:10 by jopedro-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,5 +55,7 @@ void	sort_100(t_elem **stack_a, t_elem **stack_b, int size);
 void	move_back_to_a(t_elem **stack_a, t_elem **stack_b);
 void	sort_three(t_elem **stack_a);
 void	sort_four(t_elem **stack_a, t_elem **stack_b);
+int		ft_in_int_range(int sign, int nbr, char c);
+void	free_split(char **strs);
 
 #endif

@@ -20,7 +20,7 @@ void	sort_three(t_elem **stack)
 
 	a = (*stack)->num;
 	b = (*stack)->next->num;
-	if (!(*stack)->next->next->num)
+	if (stack_size(*stack) == 2)
 		return (ra(stack, 1));
 	c = (*stack)->next->next->num;
 	if (a > b && b < c && a < c)

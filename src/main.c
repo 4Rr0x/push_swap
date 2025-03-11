@@ -6,7 +6,7 @@
 /*   By: jopedro- <jopedro-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/22 09:35:22 by jopedro-          #+#    #+#             */
-/*   Updated: 2025/01/30 17:44:12 by jopedro-         ###   ########.fr       */
+/*   Updated: 2025/03/11 15:27:02 by jopedro-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,11 +25,19 @@ int	main(int ac, char **av)
 	if (!check_input(av))
 		ext_error(NULL, NULL);
 	stack_a = crt_stack(av);
-	if (is_ordered(stack_a))
-		return (0);
 	stack_b = NULL;
+	if (is_ordered(stack_a))
+	{
+		if (ac == 2)
+			free_split(av);
+		free_stack(stack_a);
+		free_stack(stack_b);
+		return (0);
+	}
 	sort(&stack_a, &stack_b);
 	free_stack(stack_a);
 	free_stack(stack_b);
+	if (ac == 2)
+		free_split(av);
 	return (0);
 }

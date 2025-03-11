@@ -6,7 +6,7 @@
 #    By: jopedro- <jopedro-@student.42porto.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/20 15:38:50 by jopedro-          #+#    #+#              #
-#    Updated: 2025/01/30 17:43:07 by jopedro-         ###   ########.fr        #
+#    Updated: 2025/03/11 15:25:36 by jopedro-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,7 +35,7 @@ BUILD_PATH		= .build
 TEMP_PATH		= .temp
 
 SRC				= $(addprefix $(SRC_PATH)/, main.c input_verify.c sort.c operations.c \
-				  stack.c error.c operations_2.c sort_2.c) 
+				  stack.c error.c operations_2.c sort_2.c utils.c) 
 
 OBJS			= $(SRC:$(SRC_PATH)/%.c=$(BUILD_PATH)/%.o)
 
