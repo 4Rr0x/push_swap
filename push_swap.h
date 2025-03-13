@@ -6,7 +6,7 @@
 /*   By: jopedro- <jopedro-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 16:03:15 by jopedro-          #+#    #+#             */
-/*   Updated: 2025/03/11 15:23:10 by jopedro-         ###   ########.fr       */
+/*   Updated: 2025/03/11 15:22:04 by jopedro-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ void	assign_indices(t_elem *stack);
 t_elem	*crt_elem(int value);
 void	radix_sort(t_elem **stack_a, t_elem **stack_b, int size);
 void	free_stack(t_elem *stack);
-void	ext_error(t_elem *stack_a, t_elem *stack_b);
+void	ext_error(t_elem *stack_a, t_elem *stack_b, char **split);
 void	sort(t_elem **stack_a, t_elem **stack_b);
 int		find_smallest(t_elem *stack);
 int		find_second_smallest(t_elem *stack);

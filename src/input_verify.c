@@ -96,7 +96,7 @@ int	has_dupes(char **av)
 
 int	check_input(char **av)
 {
-	if (!av[1])
+	if (!av[0])
 		return (0);
 	if (!check_digit(av) || !has_dupes(av))
 		return (0);

@@ -24,7 +24,7 @@ int	main(int ac, char **av)
 		av = ft_split(av[0], ' ');
 	if (!check_input(av))
 	{
-		if (ac == 2)
+		if (ac == 2)	
 			free_split(av);
 		ext_error(NULL, NULL, NULL);
 	}

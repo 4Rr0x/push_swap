@@ -26,7 +26,7 @@ void	free_split(char **strs)
 {
 	size_t	i;
 
-	if (strs == NULL || *strs == NULL)
+	if (strs == NULL && *strs == NULL)
 		return ;
 	i = 0;
 	while (strs[i] != NULL)
