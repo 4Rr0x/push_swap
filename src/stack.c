@@ -48,7 +48,7 @@ void	add_to_stack(t_elem **stack, int num)
 
 	new_node = crt_elem(num);
 	if (!new_node)
-		ext_error(*stack, NULL);
+		ext_error(*stack, NULL, NULL);
 	if (!*stack)
 	{
 		*stack = new_node;

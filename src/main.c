@@ -23,21 +23,18 @@ int	main(int ac, char **av)
 	if (ac == 2)
 		av = ft_split(av[0], ' ');
 	if (!check_input(av))
-		ext_error(NULL, NULL);
-	stack_a = crt_stack(av);
-	stack_b = NULL;
-	if (is_ordered(stack_a))
 	{
 		if (ac == 2)
 			free_split(av);
-		free_stack(stack_a);
-		free_stack(stack_b);
-		return (0);
+		ext_error(NULL, NULL, NULL);
 	}
-	sort(&stack_a, &stack_b);
-	free_stack(stack_a);
-	free_stack(stack_b);
+	stack_a = crt_stack(av);
+	stack_b = NULL;
+	if (!is_ordered(stack_a))
+		sort(&stack_a, &stack_b);
 	if (ac == 2)
 		free_split(av);
+	free_stack(stack_a);
+	free_stack(stack_b);
 	return (0);
 }

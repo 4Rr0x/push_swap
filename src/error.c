@@ -26,8 +26,10 @@ t_elem	*find_max(t_elem *stack)
 	return (max_node);
 }
 
-void	ext_error(t_elem *stack_a, t_elem *stack_b)
+void	ext_error(t_elem *stack_a, t_elem *stack_b, char **split)
 {
+	if (split)
+		free_split(split);
 	if (stack_a)
 		free_stack(stack_a);
 	if (stack_b)
